@@ -22,13 +22,9 @@ namespace Turing {
 
         // File methods
         void open(QString);
-        void save();
+        bool save();
         void save_as(QString);
         void clear();
-
-        // Serialization methods
-
-        // Deserialization methods
 
         // Getters
         QString get_problem();

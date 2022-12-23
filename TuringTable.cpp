@@ -74,12 +74,16 @@ namespace Turing {
         return Turing::Action('\0', -2, Turing::Action::MoveType::None);
     }
     Turing::Action Table::get_next_action(QChar current_symbol, int state) {
-        return this->_actions[state][current_symbol];
+        return this->_actions[state].at(current_symbol);
     }
     bool Table::add_action(int index, std::vector<QString>& row) {
+        this->_actions.insert(this->_actions.begin() + index, std::map<QChar, Turing::Action>());
+        return this->change_action(index, row);
+    }
+    bool Table::change_action(int index, std::vector<QString>& row) {
         try {
             std::map<QChar, Turing::Action> mp;
-            int i = 0;
+            qsizetype i = 0;
             for (; i < this->_input_alphabet.size(); ++i) { // default alphabet
                 mp.insert(std::make_pair(this->_input_alphabet[i], this->parse_action(row[i])));
             }
@@ -87,11 +91,37 @@ namespace Turing {
             for (i = 0; i <= this->_additional_alphabet.size(); ++i) { // additional alphabet
                 mp.insert(std::make_pair(this->_additional_alphabet[i], this->parse_action(row[this->_input_alphabet.size() + i + 1])));
             }
-            this->_actions.insert(this->_actions.begin() + index, mp);
+            this->_actions[index] = mp;
             return true;
         }
         catch (...) {
             return false;
         }
+    }
+    bool Table::remove_action(int index) {
+        if (index < 0 || index >= (int)this->_actions.size())
+            return false;
+        this->_actions.erase(this->_actions.begin() + index);
+        return true;
+    }
+
+    Turing::Alphabet Table::get_input_alphabet() {
+        return this->_input_alphabet;
+    }
+    Turing::Alphabet Table::get_additional_alphabet() {
+        return this->_additional_alphabet;
+    }
+    std::vector<std::map<QChar, Turing::Action>> Table::get_table() {
+        return this->_actions;
+    }
+
+    void Table::set_input_alphabet(Turing::Alphabet alphabet) {
+        this->_input_alphabet = alphabet;
+    }
+    void Table::set_additional_alphabet(Turing::Alphabet alphabet) {
+        this->_additional_alphabet = alphabet;
+    }
+    void Table::set_table(std::vector<std::map<QChar, Turing::Action>>& table) {
+        this->_actions = table;
     }
 }

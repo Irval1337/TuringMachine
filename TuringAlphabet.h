@@ -9,6 +9,9 @@ namespace Turing {
     public:
         using base::base;
 
+        // Constructor from base class
+        Alphabet(QString);
+
         // Auxiliary alphabet methods
         bool contains(QChar);
         bool validate();

@@ -8,6 +8,7 @@ CONFIG += c++17
 
 SOURCES += \
     TuringAlphabet.cpp \
+    TuringSettings.cpp \
     TuringTable.cpp \
     main.cpp \
     mainwindow.cpp

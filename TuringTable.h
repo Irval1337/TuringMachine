@@ -39,17 +39,19 @@ namespace Turing {
         Turing::Action get_next_action(QChar, int);
         bool add_action(int, std::vector<QString>&);
         bool change_action(int, std::vector<QString>&);
-        void remove_action(int);
+        bool remove_action(int);
         int validate(QString);
         Turing::Action parse_action(QString);
 
         // Getters
         Turing::Alphabet get_input_alphabet();
         Turing::Alphabet get_additional_alphabet();
+        std::vector<std::map<QChar, Turing::Action>> get_table();
 
         // Setters
         void set_input_alphabet(Turing::Alphabet);
         void set_additional_alphabet(Turing::Alphabet);
+        void set_table(std::vector<std::map<QChar, Turing::Action>>&);
     };
 }
 
