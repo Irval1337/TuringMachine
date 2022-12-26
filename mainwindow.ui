@@ -39,7 +39,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPlainTextEdit" name="plainTextEdit">
+          <widget class="QPlainTextEdit" name="problemBox">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -84,7 +84,7 @@
             </widget>
            </item>
            <item row="0" column="1">
-            <widget class="QLineEdit" name="lineEdit_3">
+            <widget class="QLineEdit" name="input_alphabetBox">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -105,7 +105,7 @@
             </widget>
            </item>
            <item row="1" column="1">
-            <widget class="QLineEdit" name="lineEdit_4">
+            <widget class="QLineEdit" name="additional_alphabetBox">
              <property name="font">
               <font>
                <pointsize>10</pointsize>
@@ -135,7 +135,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QPlainTextEdit" name="plainTextEdit_3">
+          <widget class="QPlainTextEdit" name="commentsBox">
            <property name="font">
             <font>
              <pointsize>10</pointsize>
@@ -162,7 +162,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu1">

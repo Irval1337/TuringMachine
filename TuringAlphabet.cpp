@@ -2,10 +2,6 @@
 #include <map>
 
 namespace Turing {
-    Alphabet::Alphabet(QString s) {
-        *this = s;
-    }
-
     bool Alphabet::contains(QChar c) {
         return this->indexOf(c) != -1;
     }

@@ -10,13 +10,13 @@
 namespace Turing {
     class Executer {
     private:
-        Turing::Table _table;
-        Turing::Alphabet _input_alphabet, _additional_alphabet;
+        Turing::Table* _table;
+        Turing::Alphabet* _input_alphabet, *_additional_alphabet;
         Turing::Settings _settings;
         QString _input_string, _previous_input_string;
         int _current_state, _previous_state;
         int _string_pointer, _previous_string_pointer;
-        bool _changed;
+        int* _speed;
     public:
         // Default constructor
         Executer();
@@ -24,6 +24,16 @@ namespace Turing {
         // Executer methods
         Turing::Action next_action();
         Turing::Action recover_previous_action();
+        bool check_input_string(QString);
+
+        // Getters
+        Turing::Table* get_table();
+        Turing::Alphabet* get_input_alphabet();
+        Turing::Alphabet* get_additional_alphabet();
+        Turing::Settings* get_settings();
+        int get_current_state();
+        int get_string_pointer();
+        QString get_current_string();
 
         // Setters
         void set_problem(QString);
@@ -33,10 +43,11 @@ namespace Turing {
         void set_additional_alphabet(Turing::Alphabet);
         void set_turing_table(Turing::Table);
         void set_speed(int);
+        void set_current_string(QString);
 
         // Table access methods
         bool add_action(int, std::vector<QString>&);
         bool change_action(int, std::vector<QString>&);
-        void remove_action(int);
+        bool remove_action(int);
     };
 }

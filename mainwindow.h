@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "TuringExecuter.h"
+#include "QCloseEvent"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,7 +24,43 @@ private slots:
     void on_action_18_toggled(bool);
     void on_action_19_toggled(bool);
 
+    void on_action_14_triggered();
+    void on_actionQT_triggered();
+
+    void on_action_triggered();
+
+    void on_action_3_triggered();
+
+    void on_action_2_triggered();
+
+    void on_action_4_triggered();
+
+    void on_problemBox_textChanged();
+
+    void on_input_alphabetBox_textEdited();
+
+    void on_additional_alphabetBox_textEdited();
+
+    void on_commentsBox_textChanged();
+
+    void on_action_11_triggered();
+
+    void on_action_5_triggered();
+
+    void on_action_6_triggered();
+
+private:
+    void update_from_settings();
+    void save_into_settings();
+    void set_speed(int);
+    int get_speed();
+
+private:
+    bool _changed;
+
 private:
     Ui::MainWindow *ui;
+    Turing::Executer *exec;
+    virtual void closeEvent(QCloseEvent *event);
 };
 #endif // MAINWINDOW_H

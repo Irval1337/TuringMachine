@@ -16,12 +16,12 @@ namespace Turing {
         this->_path = QString();
     }
 
-    void Settings::open(QString path) {
+    bool Settings::open(QString path) {
         Turing::Settings prev = *this;
         try {
             QFile file(path);
             if (!file.exists() || !file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                return;
+                return false;
             }
 
             this->_path = path;
@@ -31,6 +31,7 @@ namespace Turing {
             QJsonDocument doc = QJsonDocument::fromJson(data.toUtf8());
             QJsonObject json = doc.object();
 
+            this->_speed = json["speed"].toInt();
             this->_problem = json["problem"].toString();
             this->_input_string = json["input_string"].toString();
             this->_comments = json["comments"].toString();
@@ -55,8 +56,10 @@ namespace Turing {
             this->_turing_table.set_table(table);
             this->_turing_table.set_input_alphabet(this->_input_alphabet);
             this->_turing_table.set_additional_alphabet(this->_additional_alphabet);
+            return true;
         } catch (...) {
             *this = prev;
+            return false;
         }
     }
     void Settings::clear() {
@@ -68,10 +71,11 @@ namespace Turing {
         }
         try {
             QFile file(this->_path);
-            if (!file.exists() || !file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+            if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
                 return false;
             }
             QJsonObject json;
+            json["speed"] = this->_speed;
             json["problem"] = this->_problem;
             json["input_string"] = this->_input_string;
             json["comments"] = this->_comments;
@@ -115,26 +119,26 @@ namespace Turing {
         }
     }
 
-    QString Settings::get_problem() {
-        return this->_problem;
+    QString* Settings::get_problem() {
+        return &this->_problem;
     }
-    QString Settings::get_input_string() {
-        return this->_input_string;
+    QString* Settings::get_input_string() {
+        return &this->_input_string;
     }
-    QString Settings::get_comments() {
-        return this->_comments;
+    QString* Settings::get_comments() {
+        return &this->_comments;
     }
-    Turing::Alphabet Settings::get_input_alphabet() {
-        return this->_input_alphabet;
+    Turing::Alphabet* Settings::get_input_alphabet() {
+        return &this->_input_alphabet;
     }
-    Turing::Alphabet Settings::get_additional_alphabet() {
-        return this->_additional_alphabet;
+    Turing::Alphabet* Settings::get_additional_alphabet() {
+        return &this->_additional_alphabet;
     }
-    Turing::Table Settings::get_turing_table() {
-        return this->_turing_table;
+    Turing::Table* Settings::get_turing_table() {
+        return &this->_turing_table;
     }
-    int Settings::get_speed() {
-        return this->_speed;
+    int* Settings::get_speed() {
+        return &this->_speed;
     }
 
     void Settings::set_problem(QString s) {

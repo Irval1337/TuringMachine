@@ -21,19 +21,19 @@ namespace Turing {
         Settings();
 
         // File methods
-        void open(QString);
+        bool open(QString);
         bool save();
         void save_as(QString);
         void clear();
 
         // Getters
-        QString get_problem();
-        QString get_input_string();
-        QString get_comments();
-        Turing::Alphabet get_input_alphabet();
-        Turing::Alphabet get_additional_alphabet();
-        Turing::Table get_turing_table();
-        int get_speed();
+        QString* get_problem();
+        QString* get_input_string();
+        QString* get_comments();
+        Turing::Alphabet* get_input_alphabet();
+        Turing::Alphabet* get_additional_alphabet();
+        Turing::Table* get_turing_table();
+        int* get_speed();
 
         // Setters
         void set_problem(QString);

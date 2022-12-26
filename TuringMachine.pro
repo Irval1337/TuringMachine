@@ -8,20 +8,24 @@ CONFIG += c++17
 
 SOURCES += \
     TuringAlphabet.cpp \
+    TuringExecuter.cpp \
     TuringSettings.cpp \
     TuringTable.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    stringview.cpp
 
 HEADERS += \
     TuringAlphabet.h \
     TuringExecuter.h \
     TuringSettings.h \
     TuringTable.h \
-    mainwindow.h
+    mainwindow.h \
+    stringview.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    stringview.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
