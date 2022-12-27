@@ -17,6 +17,11 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void paintEvent(QPaintEvent *event) override;
+    virtual void closeEvent(QCloseEvent *event) override;
+    void resizeEvent(QResizeEvent*) override;
+
 private slots:
     void on_action_15_toggled(bool);
     void on_action_16_toggled(bool);
@@ -49,6 +54,10 @@ private slots:
 
     void on_action_6_triggered();
 
+    void on_leftButton_clicked();
+
+    void updateTime();
+
 private:
     void update_from_settings();
     void save_into_settings();
@@ -57,10 +66,11 @@ private:
 
 private:
     bool _changed;
+    QRect* _tape = nullptr;
+    QTimer* _timer;
 
 private:
     Ui::MainWindow *ui;
     Turing::Executer *exec;
-    virtual void closeEvent(QCloseEvent *event);
 };
 #endif // MAINWINDOW_H

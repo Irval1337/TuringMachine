@@ -5,6 +5,9 @@
 #include <QMessageBox>
 #include "stringview.h"
 #include <QDialog>
+#include <QPainter>
+#include <QWidget>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -17,12 +20,47 @@ MainWindow::MainWindow(QWidget *parent)
     ui->splitter_2->setSizes(QList<int>({200, 200}));
 
     this->_changed = false;
+
+    this->_timer = new QTimer(this); // Создаем объект класса QTimer и передаем адрес переменной
+        this->_timer->setInterval(50); // Задаем интервал таймера
+        connect(this->_timer, SIGNAL(timeout()), this, SLOT(updateTime())); // Подключаем сигнал таймера к нашему слоту
+        this->_timer->start(); // Запускаем таймер
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
     delete exec;
+    delete _timer;
+}
+
+void MainWindow::paintEvent(QPaintEvent *event)
+{
+    Q_UNUSED(event);
+    QPainter painter(this);
+    painter.setPen(QPen(Qt::black, 1, Qt::SolidLine, Qt::FlatCap));
+
+    QWidget* left = this->ui->horizontalLayout_2->itemAt(0)->widget();
+    QWidget* right = this->ui->horizontalLayout_2->itemAt(1)->widget();
+    auto window = this->geometry();
+    if (this->_tape != nullptr) {
+        delete this->_tape;
+    }
+    painter.setBrush(QBrush(QColor(0xfefee2), Qt::SolidPattern));
+    this->_tape = new QRect(left->mapToGlobal(QPoint(0,0)).x() - window.x() + 19, left->mapToGlobal(QPoint(0,0)).y() - window.y() + 1,
+                        right->mapToGlobal(QPoint(0, 0)).x() - left->mapToGlobal(QPoint(0,0)).x() - 19, 37);
+    painter.drawRect(*this->_tape);
+}
+
+void MainWindow::updateTime()
+{
+    this->repaint();
+}
+
+void MainWindow::resizeEvent(QResizeEvent* event)
+{
+    QMainWindow::resizeEvent(event);
+    this->repaint();
 }
 
 void MainWindow::closeEvent(QCloseEvent* event) // Проверка на наличие несохраненных данных
@@ -293,5 +331,11 @@ void MainWindow::on_action_5_triggered() // Лента -> Сохранить
 void MainWindow::on_action_6_triggered() // Лента -> Восстановить
 {
     this->exec->set_current_string(*this->exec->get_settings()->get_input_string());
+}
+
+
+void MainWindow::on_leftButton_clicked()
+{
+
 }
 
