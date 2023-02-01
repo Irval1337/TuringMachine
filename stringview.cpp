@@ -35,7 +35,7 @@ void StringView::on_buttonBox_accepted() // ОК
         this->exec->set_input_string(this->ui->lineEdit->text());
         this->close();
     } else {
-        QMessageBox::warning(this, "TuringEmulator", "Веденное слово не соответствует указанному исходному алфавиту.");
+        QMessageBox::warning(this, "TuringEmulator", "Ввденное слово не соответствует указанному исходному алфавиту.");
     }
 }
 

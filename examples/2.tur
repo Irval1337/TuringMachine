@@ -1,0 +1,142 @@
+{
+    "additional_alphabet": "A",
+    "comments": "",
+    "input_alphabet": "a",
+    "input_string": "",
+    "problem": "",
+    "speed": 2,
+    "turing_table": {
+        "actions": [
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 0,
+                        "next_state": 4,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 0,
+                        "next_state": 1,
+                        "symbol": "A"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 1,
+                        "next_state": 2,
+                        "symbol": "a"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 0,
+                        "next_state": 1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 1,
+                        "next_state": 3,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": 2,
+                        "symbol": "a"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 0,
+                        "next_state": 4,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 2,
+                        "next_state": 0,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "a"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 2,
+                        "next_state": -1,
+                        "symbol": "!"
+                    }
+                }
+            ]
+        ]
+    }
+}

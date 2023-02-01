@@ -15,6 +15,7 @@ namespace Turing {
         Turing::Settings _settings;
         QString _input_string, _previous_input_string;
         int _current_state, _previous_state;
+        int _string_offset;
         int _string_pointer, _previous_string_pointer;
         int* _speed;
     public:
@@ -22,9 +23,10 @@ namespace Turing {
         Executer();
 
         // Executer methods
-        Turing::Action next_action();
+        Turing::Action next_action(int);
         Turing::Action recover_previous_action();
         bool check_input_string(QString);
+        QString get_current_string(int);
 
         // Getters
         Turing::Table* get_table();
@@ -33,7 +35,8 @@ namespace Turing {
         Turing::Settings* get_settings();
         int get_current_state();
         int get_string_pointer();
-        QString get_current_string();
+        QString get_current_input_string();
+        int get_offset();
 
         // Setters
         void set_problem(QString);
@@ -44,10 +47,13 @@ namespace Turing {
         void set_turing_table(Turing::Table);
         void set_speed(int);
         void set_current_string(QString);
+        void update_offset(int);
+        void reset_offset();
 
         // Table access methods
         bool add_action(int, std::vector<QString>&);
         bool change_action(int, std::vector<QString>&);
+        bool change_action(int, int, QString);
         bool remove_action(int);
     };
 }

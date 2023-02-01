@@ -20,7 +20,7 @@ namespace Turing {
     Table::Table() {
         this->_actions = std::vector<std::map<QChar, Turing::Action>>();
         this->_input_alphabet = this->_additional_alphabet = "";
-        this->_empty = ' ';
+        this->_empty = '_';
     }
 
     int Turing::Table::validate(QString s) {
@@ -32,8 +32,10 @@ namespace Turing {
     }
     Turing::Action Turing::Table::parse_action(QString s) {
         int validate_value = this->validate(s);
-        if (validate_value == 0 || s.size() == 0) {
+        if (s.size() == 0) {
             return Turing::Action('\0', -2, Turing::Action::MoveType::None);
+        } else if (validate_value == 0) {
+            throw 1;
         }
 
         Turing::Action::MoveType move = Turing::Action::MoveType::None;
@@ -82,13 +84,15 @@ namespace Turing {
     }
     bool Table::change_action(int index, std::vector<QString>& row) {
         try {
+            if ((std::size_t)index >= this->_actions.size()) return true;
+
             std::map<QChar, Turing::Action> mp;
             qsizetype i = 0;
             for (; i < this->_input_alphabet.size(); ++i) { // default alphabet
                 mp.insert(std::make_pair(this->_input_alphabet[i], this->parse_action(row[i])));
             }
             mp.insert(std::make_pair(this->_empty, this->parse_action(row[i]))); // empty simbol
-            for (i = 0; i <= this->_additional_alphabet.size(); ++i) { // additional alphabet
+            for (i = 0; i < this->_additional_alphabet.size(); ++i) { // additional alphabet
                 mp.insert(std::make_pair(this->_additional_alphabet[i], this->parse_action(row[this->_input_alphabet.size() + i + 1])));
             }
             this->_actions[index] = mp;

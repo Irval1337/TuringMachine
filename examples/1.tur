@@ -1,0 +1,148 @@
+{
+    "additional_alphabet": "",
+    "comments": "Q0 - анализ 1-го символа, удаление его,\nразветвление\nQ1 - запись a справа\nQ2 - запись b справа\nQ3 - запись c справа",
+    "input_alphabet": "abc",
+    "input_string": "abba",
+    "problem": "А={a,b,c}. Перенести первый символ непустого слова Р в его конец.",
+    "speed": 2,
+    "turing_table": {
+        "actions": [
+            [
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": 1,
+                        "symbol": "_"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": 2,
+                        "symbol": "_"
+                    }
+                },
+                {
+                    "key": "c",
+                    "value": {
+                        "move": 1,
+                        "next_state": 3,
+                        "symbol": "_"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "a"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "c",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "b"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "c",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "c"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "c",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ]
+        ]
+    }
+}

@@ -42,9 +42,9 @@ private slots:
 
     void on_problemBox_textChanged();
 
-    void on_input_alphabetBox_textEdited();
+    void on_input_alphabetBox_textEdited(const QString&);
 
-    void on_additional_alphabetBox_textEdited();
+    void on_additional_alphabetBox_textEdited(const QString&);
 
     void on_commentsBox_textChanged();
 
@@ -56,18 +56,48 @@ private slots:
 
     void on_leftButton_clicked();
 
-    void updateTime();
+    void update_time();
+
+    void on_addRowBtn_clicked();
+
+    void on_delRowBtn_clicked();
+
+    void on_tableWidget_cellChanged(int row, int column);
+
+    void on_rightButton_clicked();
+
+    void on_action_8_triggered();
+
+    void on_action_9_triggered();
+
+    void on_action_7_triggered();
 
 private:
     void update_from_settings();
     void save_into_settings();
     void set_speed(int);
     int get_speed();
+    void update_table();
+    void move_left();
+    void move_right();
+    void move_pointer(bool);
+    void set_enabled(bool);
+    void pointer_reset();
 
 private:
+    bool _undo_input = false, _undo_additional = false;
     bool _changed;
+    bool _no_edit = false;
+    bool _run = false;
+    int _currect_tick = 0;
     QRect* _tape = nullptr;
+    QImage* _pointer = nullptr;
+    int _pointer_x = 0;
+    int _pointer_move_type = 0;
+
+    QVector<QLine*> _lines;
     QTimer* _timer;
+    QFont _monospace;
 
 private:
     Ui::MainWindow *ui;

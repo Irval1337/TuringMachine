@@ -1,0 +1,302 @@
+{
+    "additional_alphabet": "ABCD",
+    "comments": "",
+    "input_alphabet": "ab",
+    "input_string": "ababbabbaaabb",
+    "problem": "",
+    "speed": 2,
+    "turing_table": {
+        "actions": [
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "B",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "C",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "D",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 0,
+                        "next_state": 4,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": 1,
+                        "symbol": "A"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": 2,
+                        "symbol": "B"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "B",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "C",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "D",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": 3,
+                        "symbol": "C"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "B",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "C",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "D",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": 3,
+                        "symbol": "D"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 1,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 1,
+                        "next_state": 0,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "B",
+                    "value": {
+                        "move": 1,
+                        "next_state": 0,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "C",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "D",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "\u0000"
+                    }
+                }
+            ],
+            [
+                {
+                    "key": "A",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "a"
+                    }
+                },
+                {
+                    "key": "B",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "b"
+                    }
+                },
+                {
+                    "key": "C",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "a"
+                    }
+                },
+                {
+                    "key": "D",
+                    "value": {
+                        "move": 0,
+                        "next_state": -1,
+                        "symbol": "b"
+                    }
+                },
+                {
+                    "key": "_",
+                    "value": {
+                        "move": 0,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "a",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                },
+                {
+                    "key": "b",
+                    "value": {
+                        "move": 2,
+                        "next_state": -2,
+                        "symbol": "\u0000"
+                    }
+                }
+            ]
+        ]
+    }
+}

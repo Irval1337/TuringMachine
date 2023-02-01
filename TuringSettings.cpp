@@ -82,7 +82,6 @@ namespace Turing {
             json["input_alphabet"] = (QString)this->_input_alphabet;
             json["additional_alphabet"] = (QString)this->_additional_alphabet;
             QJsonObject turing_table;
-            json["turing_table"] = turing_table;
             QJsonArray actions;
             std::vector<std::map<QChar, Turing::Action>> table = this->_turing_table.get_table();
             for(size_t i = 0; i < table.size(); ++i) {
@@ -100,6 +99,7 @@ namespace Turing {
                 actions.append(mp);
             }
             turing_table["actions"] = actions;
+            json["turing_table"] = turing_table;
 
             QTextStream stream(&file);
             stream << QJsonDocument(json).toJson();
