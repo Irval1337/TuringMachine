@@ -30,7 +30,7 @@ namespace Turing {
 
         if (table.at(this->_current_state).count(curr_string[this->_string_pointer]) != 0) {
             act = table.at(this->_current_state).at(curr_string[this->_string_pointer]);
-            bool cont = !this->_input_alphabet->contains(act.get_symbol()) && !this->_additional_alphabet->contains(act.get_symbol());
+            bool cont = !this->_input_alphabet->contains(act.get_symbol()) && !this->_additional_alphabet->contains(act.get_symbol()) && act.get_symbol() != '_';;
             int fuck_you = act.get_next_state();
             bool ahahah = fuck_you >= (int)table.size();
             if (ahahah|| (act.get_symbol() != '\0' && cont)) {
